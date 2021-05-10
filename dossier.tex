@@ -1,0 +1,104 @@
+\documentclass[a4paper, 11pt]{scrartcl}
+
+% French language support
+\usepackage[utf8]{inputenc}
+\usepackage[cyr]{aeguill}
+\usepackage[francais]{babel}
+\usepackage{eurosym}
+
+\usepackage[final]{pdfpages}
+
+% Credits to u/Werner (https://tex.stackexchange.com/users/5764/werner) 
+% at https://tex.stackexchange.com/questions/129978/how-to-remove-section-subsection-titles
+\newcommand{\fakesubsection}[1]{%
+  \par\refstepcounter{subsection}% Increase subsection counter
+  \subsectionmark{#1}% Add subsection mark (header)
+  \addcontentsline{toc}{subsection}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
+\newcommand{\fakesection}[1]{%
+  \newpage% Begin section at the beginning of a page
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
+
+% Metadata
+
+\title{Dossier de location}
+\author{
+    John Doe\\
+    (33) 06 01 02 03 04\\
+    1 avenue de France\\
+    75000 Paris\\
+    johndoe@mail.com\\
+    \and
+    Jane Doe\\
+    (33) 06 01 02 03 05\\
+    1 avenue de France\\
+    75000 Paris\\
+    Janedoe@mail.com\\
+}
+\date{Mai 2021} 
+
+% Content
+
+\begin{document}
+
+\maketitle
+
+\section{Motivation}
+
+Madame, Monsieur,
+\newline
+\newline
+Nous recherchons..
+\newline
+\newline
+Vous trouverez ci-après les justificatifs de notre dossier de location.
+N'hésitez pas à nous recontacter pour toute information ou justificatif supplémentaire.
+Nous vous souhaitons une bonne lecture !
+
+\newpage
+\tableofcontents
+
+\fakesection{Locataire 1 - John Doe}
+
+\fakesubsection{Carte d'identité}
+% Include pdf documents with \includepdf
+% Consult the pdfpages documentation for a complete list of options
+% https://texdoc.org/serve/pdfpages.pdf/0
+% \includepdf[pages=1-2,nup=2x1,pagecommand={}]{john-ci.pdf}
+\fakesubsection{Promesse d'embauche}
+% TODO
+\fakesubsection{Quittance de loyer}
+% TODO
+\fakesubsection{Attestation de logement}
+% TODO
+\fakesubsection{Déclaration de revenus}
+% TODO
+
+\fakesection{Garant 1 - Thomas Doe}
+
+\fakesubsection{Carte d'identité}
+% TODO
+\fakesubsection{Attestation de logement}
+% TODO
+\fakesubsection{Déclaration de revenus}
+% TODO
+
+\fakesection{Locataire 2 - Jane Doe}
+
+\fakesubsection{Carte d'identité}
+% TODO
+\fakesubsection{Contrat de travail}
+% TODO
+\fakesubsection{Attestation de logement}
+% TODO
+\fakesubsection{Déclaration de revenus}
+% TODO
+\fakesubsection{Carte étudiante}
+% TODO
+
+\end{document}
